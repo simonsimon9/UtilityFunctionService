@@ -21,7 +21,7 @@ public class Url {
 	private String originalurl;
 	private String tinyurl;
 	private int accesstimes;
-	private Long createdBy; //foreign key. 
+	private Long userid; //foreign key.  created by
 	/**
 	 * @return the hashValue
 	 */
@@ -74,12 +74,12 @@ public class Url {
 	 * @return the createdBy
 	 */
 	public Long getCreatedBy() {
-		return createdBy;
+		return userid;
 	}
 	/**
 	 * @param createdBy the createdBy to set
 	 */
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
+	public void setCreatedBy(Long userid) {
+		this.userid = userid;
 	}
 }

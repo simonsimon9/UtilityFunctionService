@@ -1,4 +1,4 @@
-<form action="" (ngSubmit)="onSubmit()">
+<form action="" #urlForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-control">
         <label for="url">Paste the URL to be shorted </label>
         <input [(ngModel)] = "url" type="text" name="url" id="input-text">
