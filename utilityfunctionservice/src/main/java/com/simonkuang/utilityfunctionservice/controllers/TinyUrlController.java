@@ -3,14 +3,14 @@ package com.simonkuang.utilityfunctionservice.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
-import com.simonkuang.utilityfunctionservice.models.TinyUrlResponse;
 import com.simonkuang.utilityfunctionservice.models.Url;
 import com.simonkuang.utilityfunctionservice.service.UrlService;
 
@@ -35,7 +35,22 @@ public class TinyUrlController {
 		log.info("recieved");
 	
 		Url newUrl = urlservice.addUrl(url);
-		System.out.println(newUrl);
 		return new Url(newUrl.getOriginalurl(), newUrl.getTinyurl());
 	}
+	
+	@GetMapping(value="/{id}")
+	public RedirectView requestUrl(@PathVariable("id") Long id) {
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl(urlservice.obtainUrl(id).getOriginalurl());
+		return redirectView;
+	}
+	
+	
 }
+/*
+@GetMapping(value="/{id}")
+public String requestUrl(@PathVariable("id") Long id) {
+	System.out.println(urlservice.obtainUrl(id).getOriginalurl());
+	return urlservice.obtainUrl(id).getOriginalurl();
+}
+*/

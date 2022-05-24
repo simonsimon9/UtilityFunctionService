@@ -23,5 +23,8 @@ public class UrlService {
 		return urlRepo.save(url);
 	}
 	
-	
+	public Url obtainUrl(Long hashValue) {
+		return urlRepo.findUrlByHashValue(hashValue);
+		
+	}
 }
