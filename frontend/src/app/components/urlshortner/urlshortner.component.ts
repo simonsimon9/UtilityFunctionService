@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlService } from 'src/app/services/url.service';
+import { Url } from 'src/app/Url';
 
 @Component({
   selector: 'app-urlshortner',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UrlshortnerComponent implements OnInit {
   title:string = "underwood help us";
-  url!: string;
-  constructor() { }
+  constructor(private urlService: UrlService) { }
 
   ngOnInit(): void {
+  }
+
+  submitUrl(newurl: Url){
+    console.log(newurl);
+    console.log("in submit url");
+    this.urlService.sendUrl(newurl).subscribe();
   }
 
 }

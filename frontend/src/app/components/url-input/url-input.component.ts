@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { urlModel } from 'src/app/urlmodel';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Url } from 'src/app/Url';
 
 @Component({
   selector: 'app-url-input',
@@ -7,8 +7,10 @@ import { urlModel } from 'src/app/urlmodel';
   styleUrls: ['./url-input.component.css']
 })
 export class UrlInputComponent implements OnInit {
+  @Output() onSubmitUrl: EventEmitter<Url> = new EventEmitter();
+
   url: string | undefined;
-  submissionurl : urlModel | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -19,9 +21,16 @@ export class UrlInputComponent implements OnInit {
       return;
     }
 
-    const newUrlSubmission ={
-      url: this.url,
-      userId: null
+    const newUrl = {
+      originalurl: this.url ,
+      tinyurl: undefined,
+      userId: undefined
     }
+    console.log(newUrl)
+    
+    //emitter , now in urlshortner.component.html, you can call this emitter by (onSubmitUrl) 
+    //this case we will do (onSubmitUrl)="functionName($event)" 
+    this.onSubmitUrl.emit(newUrl);
+    
   }
 }
