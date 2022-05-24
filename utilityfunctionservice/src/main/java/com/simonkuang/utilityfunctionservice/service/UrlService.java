@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import com.simonkuang.utilityfunctionservice.models.Url;
 import com.simonkuang.utilityfunctionservice.repo.UrlRepo;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class UrlService {
 	
@@ -18,13 +20,32 @@ public class UrlService {
 	}
 	
 	public Url addUrl(Url url) {
+		
 		url.setHashValue(url.getOriginalurl().hashCode());
-		url.createAndSetTinyUrl(url.getHashValue());
-		return urlRepo.save(url);
+		Url foundDataByHashValue = urlRepo.findUrlByHashValue(url.getHashValue());
+		
+		if(foundDataByHashValue == null) {
+			log.info("New url entry saved and return tiny url");
+			url.createAndSetTinyUrl(url.getHashValue());
+			return urlRepo.save(url);
+		}
+			
+		log.info("Url entry was not new entry, return saved url");
+		return foundDataByHashValue;
+		
+		
 	}
 	
-	public Url obtainUrl(Long hashValue) {
-		return urlRepo.findUrlByHashValue(hashValue);
+	public String obtainUrl(Long hashValue) {
+		Url foundDataByHashResult = urlRepo.findUrlByHashValue(hashValue);
+		if(foundDataByHashResult == null) {
+			log.info("Cannot find url based on the hash");
+			return "localhost:4200";
+		}
+		
+		log.info("Hash found");
+		return foundDataByHashResult.getOriginalurl();
+		
 		
 	}
 }
