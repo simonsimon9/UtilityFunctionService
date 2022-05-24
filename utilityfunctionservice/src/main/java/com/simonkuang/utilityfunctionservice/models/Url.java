@@ -22,6 +22,15 @@ public class Url {
 	private String tinyurl;
 	private int accesstimes;
 	private Long userid; //foreign key.  created by
+	
+	public Url(String originalurl, String tinyurl) {
+		this.id=null;
+		this.hashValue= -1;
+		this.originalurl = originalurl;
+		this.tinyurl = tinyurl;
+		this.accesstimes = 0;
+		this.userid = null;
+	}
 	/**
 	 * @return the hashValue
 	 */

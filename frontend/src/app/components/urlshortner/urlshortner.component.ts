@@ -17,7 +17,9 @@ export class UrlshortnerComponent implements OnInit {
   submitUrl(newurl: Url){
     console.log(newurl);
     console.log("in submit url");
-    this.urlService.sendUrl(newurl).subscribe();
+    this.urlService.sendUrl(newurl).subscribe((response)=>{
+      console.log(response);
+    });
   }
 
 }

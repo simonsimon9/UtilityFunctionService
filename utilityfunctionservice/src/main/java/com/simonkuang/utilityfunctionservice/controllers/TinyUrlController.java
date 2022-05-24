@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simonkuang.utilityfunctionservice.models.Url;
@@ -28,8 +29,9 @@ public class TinyUrlController {
 	}
 	
 	@PostMapping(value= "/post")
-	public void recieveUrl(@RequestBody Url url) {
+	@ResponseBody
+	public Url recieveUrl(@RequestBody Url url) {
 		log.info("recieved");
-		System.out.println(url);
+		return new Url(url.getOriginalurl(), "random");
 	}
 }
