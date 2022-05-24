@@ -9,6 +9,7 @@ import { Url } from 'src/app/Url';
 })
 export class UrlshortnerComponent implements OnInit {
   title:string = "underwood help us";
+  responseTinyUrl!:string;
   constructor(private urlService: UrlService) { }
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class UrlshortnerComponent implements OnInit {
     console.log("in submit url");
     this.urlService.sendUrl(newurl).subscribe((response)=>{
       console.log(response);
+      this.responseTinyUrl = response.tinyurl!;
     });
   }
 

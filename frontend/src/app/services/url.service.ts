@@ -18,6 +18,6 @@ export class UrlService {
 
   sendUrl(url: Url):Observable<Url>{
     console.log('send to back end');
-    return this.myHttpRequest.post<Url>(`${this.apiUrl}/post`, url, httpOptions);
+    return this.myHttpRequest.post<Url>(`${this.apiUrl}/post`,url, httpOptions);
   }
 }

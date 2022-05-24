@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simonkuang.utilityfunctionservice.models.TinyUrlResponse;
 import com.simonkuang.utilityfunctionservice.models.Url;
 import com.simonkuang.utilityfunctionservice.service.UrlService;
 
@@ -32,6 +33,7 @@ public class TinyUrlController {
 	@ResponseBody
 	public Url recieveUrl(@RequestBody Url url) {
 		log.info("recieved");
-		return new Url(url.getOriginalurl(), "random");
+		System.out.println(url);
+		return new Url(url.getOriginalurl(), "df");
 	}
 }
