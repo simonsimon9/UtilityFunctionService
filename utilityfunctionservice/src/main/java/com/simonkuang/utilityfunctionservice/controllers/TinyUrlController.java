@@ -33,7 +33,9 @@ public class TinyUrlController {
 	@ResponseBody
 	public Url recieveUrl(@RequestBody Url url) {
 		log.info("recieved");
-		System.out.println(url);
-		return new Url(url.getOriginalurl(), "df");
+	
+		Url newUrl = urlservice.addUrl(url);
+		System.out.println(newUrl);
+		return new Url(newUrl.getOriginalurl(), newUrl.getTinyurl());
 	}
 }
