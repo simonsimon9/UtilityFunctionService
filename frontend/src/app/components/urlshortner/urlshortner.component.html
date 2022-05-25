@@ -3,7 +3,8 @@
         <app-header [title]="title"></app-header>
         <app-url-input (onSubmitUrl)="submitUrl($event)"></app-url-input>   <!--emit goes here-->
     </div>
-    <div class="container" [ngClass]="responseTinyUrl ? 'border' : '' "  >
-        <app-tinyurl-output [tinyurl]="responseTinyUrl"></app-tinyurl-output>
+    <div  
+        [ngClass]="responseTinyUrl ? '' : 'remove' " >
+        <app-tinyurl-output  [tinyurl]="responseTinyUrl"></app-tinyurl-output>
     </div>
 </div>

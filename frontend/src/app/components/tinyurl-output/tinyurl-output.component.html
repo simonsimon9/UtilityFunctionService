@@ -1,3 +1,7 @@
-
-<input type="text" name="output-text" value={{tinyurl}} #formInputText>
-<input type="button" value="copy" [ngxClipboard]="formInputText">
+<div class="container border">
+    
+        <textarea class="text-box" rows="5" type="text" name="output-text" value={{tinyurl}} #formInputText></textarea>
+        <input class="btn-copy" type="button" value="copy" [ngxClipboard]="formInputText">
+   
+    
+</div>
