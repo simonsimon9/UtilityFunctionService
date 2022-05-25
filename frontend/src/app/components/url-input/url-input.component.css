@@ -1,0 +1,39 @@
+label{
+    display: block;
+    text-align: center;
+}
+
+.text-box{
+    display:block;
+    margin: 0 auto;
+    width: 20rem;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+
+.text-label{
+    font-size: large;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn-submit{
+    display:block;
+    margin: 0 auto;
+    background-color: #5b5c97;
+    color: white;
+    border: none;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.btn-submit:hover{
+    background-color: #9589d3;
+}
+
+.btn-submit:active{
+    background-color: #272f51;
+}

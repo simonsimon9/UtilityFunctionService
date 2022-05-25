@@ -1,1 +1,3 @@
-<p>{{tinyurl}}</p>
+
+<input type="text" name="output-text" value={{tinyurl}} #formInputText>
+<input type="button" value="copy" [ngxClipboard]="formInputText">

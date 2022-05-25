@@ -8,7 +8,7 @@ import { Url } from 'src/app/Url';
   styleUrls: ['./urlshortner.component.css']
 })
 export class UrlshortnerComponent implements OnInit {
-  title:string = "underwood help us";
+  title:string = "URL Shortner Service";
   responseTinyUrl!:string;
   constructor(private urlService: UrlService) { }
 

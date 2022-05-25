@@ -1,8 +1,11 @@
-<form action="" #urlForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="form-control">
-        <label for="url">Paste the URL to be shorted </label>
-        <input [(ngModel)] = "url" type="text" name="url" id="input-text">
-    </div>
-    <input type="submit" value="Shorten URL" class="btn-submit">
-   
-</form>
+
+<div >
+    <form #urlForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-control border-0 ">
+            <label class="text-label mb-3" for="url">Paste the URL to be shorted </label>
+            <input class="text-box mb-5" [(ngModel)] = "url" type="text" name="url" id="input-text">
+        
+            <input class="btn-submit mb-5"  type="submit" value="Shorten URL" >
+        </div>
+    </form>
+</div>

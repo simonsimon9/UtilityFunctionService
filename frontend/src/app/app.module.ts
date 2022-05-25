@@ -9,6 +9,8 @@ import { UrlInputComponent } from './components/url-input/url-input.component';
 import { TinyurlOutputComponent } from './components/tinyurl-output/tinyurl-output.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UrlshortnerComponent } from './components/urlshortner/urlshortner.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { UrlshortnerComponent } from './components/urlshortner/urlshortner.compo
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    ClipboardModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
