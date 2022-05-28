@@ -1,12 +1,18 @@
 package com.simonkuang.utilityfunctions.tests;
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import org.hamcrest.Matchers.*;
+
+
+
+
+
+
+import io.restassured.*;
+import org.hamcrest.*;
 import org.junit.jupiter.api.Test;
 
-public class Test_TinyURL_API {
+
+class Test_TinyURL_API {
 	@Test
-	void test_01() {
-		
+	public void test_01() {
+		RestAssured.get();
 	}
 }
