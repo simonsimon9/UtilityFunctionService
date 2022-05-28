@@ -64,8 +64,18 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
-		
+		<dependency>
+		      <groupId>io.rest-assured</groupId>
+		      <artifactId>rest-assured</artifactId>
+		      <version>5.1.0</version>
+		    
+		</dependency>
+		<dependency>
+		      <groupId>io.rest-assured</groupId>
+		      <artifactId>spring-web-test-client</artifactId>
+		      <version>5.1.0</version>
+		     
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
