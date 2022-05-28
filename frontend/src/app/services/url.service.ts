@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UrlService {
-  private apiUrl = 'http://localhost:8080/tinyurl';
+  private apiUrl = 'http://localhost:8080';
 
   constructor(private myHttpRequest:HttpClient) { }
 

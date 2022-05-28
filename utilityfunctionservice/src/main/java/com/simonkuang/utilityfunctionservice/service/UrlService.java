@@ -1,5 +1,7 @@
 package com.simonkuang.utilityfunctionservice.service;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,10 @@ public class UrlService {
 	
 	public Url addUrl(Url url) {
 		
-		url.setHashValue(url.getOriginalurl().hashCode());
+		String originalurl = url.getOriginalurl();
+		String hash = UUID.nameUUIDFromBytes(originalurl.getBytes()).toString().substring(0,7);
+		url.setHashValue(hash);
+		
 		Url foundDataByHashValue = urlRepo.findUrlByHashValue(url.getHashValue());
 		
 		if(foundDataByHashValue == null) {
@@ -30,14 +35,14 @@ public class UrlService {
 			return urlRepo.save(url);
 		}
 			
-		log.info("Url entry was not new entry, return saved url");
+		log.info("Url entry was NOT a new entry, return cached url");
 		return foundDataByHashValue;
 		
 		
 	}
 	
-	public String obtainUrl(Long hashValue) {
-		Url foundDataByHashResult = urlRepo.findUrlByHashValue(hashValue);
+	public String obtainUrl(String id) {
+		Url foundDataByHashResult = urlRepo.findUrlByHashValue(id);
 		if(foundDataByHashResult == null) {
 			log.info("Cannot find url based on the hash");
 			return "localhost:4200";

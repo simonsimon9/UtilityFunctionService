@@ -17,7 +17,6 @@ import com.simonkuang.utilityfunctionservice.service.UrlService;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
-@RequestMapping(value = "/tinyurl")
 @CrossOrigin
 public class TinyUrlController {
 	@Autowired
@@ -29,13 +28,12 @@ public class TinyUrlController {
 	@ResponseBody
 	public Url recieveUrl(@RequestBody Url url) {
 		log.info("recieved");
-	
-		Url newUrl = urlservice.addUrl(url);
-		return new Url(newUrl.getOriginalurl(), newUrl.getTinyurl());
+		Url recievedUrl = urlservice.addUrl(url);
+		return new Url(recievedUrl.getOriginalurl(), recievedUrl.getTinyurl());
 	}
 	
 	@GetMapping(value="/{id}")
-	public RedirectView requestUrl(@PathVariable("id") Long id) {
+	public RedirectView requestUrl(@PathVariable("id") String id) {
 		log.info("Retrieved original url from DB, returning");
 		RedirectView redirectView = new RedirectView();
 		redirectView.setUrl(urlservice.obtainUrl(id));

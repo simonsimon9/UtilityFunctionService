@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TinyurlOutputComponent implements OnInit {
   @Input() tinyurl!: String;
+  @Input() originalurl!: String;
   constructor() { }
 
   ngOnInit(): void {

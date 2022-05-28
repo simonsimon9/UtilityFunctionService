@@ -9,7 +9,7 @@ import com.simonkuang.utilityfunctionservice.models.Url;
 
 @Repository
 public interface UrlRepo extends JpaRepository<Url, Long>{
-	Url findUrlByHashValue(Long hashValue);
+	Url findUrlByHashValue(String string);
 	
 	
 }

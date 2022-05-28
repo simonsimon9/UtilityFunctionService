@@ -1,7 +1,18 @@
 <div class="container border">
+        <div>
+                
+                <input class="text-box" rows="5" type="text" name="output-text" value={{tinyurl}} #formInputText>
+                       
+                
+                <input class="btn-copy" type="button" value="copy" [ngxClipboard]="formInputText">
+        
+                
+        </div>
+       
+        <div class="container-output-url">
+                <p class="originalurl">Original Url:</p>
+                <p>{{originalurl}}</p>
     
-        <textarea class="text-box" rows="5" type="text" name="output-text" value={{tinyurl}} #formInputText></textarea>
-        <input class="btn-copy" type="button" value="copy" [ngxClipboard]="formInputText">
-   
-    
+        </div>
+       
 </div>

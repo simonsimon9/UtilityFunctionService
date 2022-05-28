@@ -5,6 +5,9 @@
     </div>
     <div  
         [ngClass]="responseTinyUrl ? '' : 'remove' " >
-        <app-tinyurl-output  [tinyurl]="responseTinyUrl"></app-tinyurl-output>
+        <app-tinyurl-output  
+            [tinyurl]="responseTinyUrl"
+            [originalurl]="responseOriginalUrl">
+        </app-tinyurl-output>
     </div>
 </div>

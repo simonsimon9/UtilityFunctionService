@@ -17,7 +17,7 @@ public class Url {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Long hashValue;
+	private String hashValue;
 	private String originalurl;
 	private String tinyurl;
 	private int accesstimes;
@@ -25,7 +25,7 @@ public class Url {
 	
 	public Url(String originalurl, String tinyurl) {
 		this.id=null;
-		this.hashValue= (long) -1;
+		this.hashValue= "";
 		this.originalurl = originalurl;
 		this.tinyurl = tinyurl;
 		this.accesstimes = 0;
@@ -34,14 +34,14 @@ public class Url {
 	/**
 	 * @return the hashValue
 	 */
-	public Long getHashValue() {
+	public String getHashValue() {
 		return hashValue;
 	}
 	/**
 	 * @param i the hashValue to set
 	 */
-	public void setHashValue(int i) {
-		this.hashValue = (long) i;
+	public void setHashValue(String i) {
+		this.hashValue =  i;
 	}
 	/**
 	 * @return the originalurl
@@ -92,8 +92,8 @@ public class Url {
 		this.userid = userid;
 	}
 	
-	public void createAndSetTinyUrl(Long hash) {
-		this.setTinyurl("http://localhost:8080/tinyurl/" + String.valueOf(hash));
+	public void createAndSetTinyUrl(String string) {
+		this.setTinyurl("http://localhost:8080/" + string);
 		
 	}
 }
