@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from 'src/app/services/url.service';
 import { Url } from 'src/app/Url';
-
+import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-urlshortner',
   templateUrl: './urlshortner.component.html',
@@ -17,8 +17,8 @@ export class UrlshortnerComponent implements OnInit {
   }
 
   submitUrl(newurl: Url){
-    console.log(newurl);
-    console.log("in submit url");
+    
+    console.log("inside submit");
     this.urlService.sendUrl(newurl).subscribe((response)=>{
       console.log(response);
       this.responseTinyUrl = response.tinyurl!;

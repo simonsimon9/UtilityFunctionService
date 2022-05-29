@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Url } from '../Url';
-
+import { environment } from 'src/environments/environment';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UrlService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = environment.backendurl;
 
   constructor(private myHttpRequest:HttpClient) { }
 
