@@ -4,14 +4,18 @@
                 <input class="text-box" rows="5" type="text" name="output-text" value={{tinyurl}} #formInputText>
                        
                 
-                <input class="btn-copy" type="button" value="copy" [ngxClipboard]="formInputText">
+                <input class="btn-copy" type="button" value="copy" 
+                        [ngxClipboard]="formInputText" 
+                        (click)="copy($event) "
+                        >
+               
         
                 
         </div>
-       
+        <p class="message" [style.visibility]="visibility">Copied to clipboard!</p>
         <div class="container-output-url">
                 <p class="originalurl">Original Url:</p>
-                <p>{{originalurl}}</p>
+                <p class="reminder">{{originalurl}}</p>
     
         </div>
        

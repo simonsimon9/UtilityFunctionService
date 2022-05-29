@@ -40,6 +40,7 @@
     margin-top: 20px;
     margin-right: 5rem;
     margin-left:5rem;
+    
 }
 
 p{
@@ -52,4 +53,10 @@ p{
 
 .reminder{
     font-weight: 300;
+}
+
+.message{
+    visibility:hidden;
+    color:rgb(0, 0, 141);
+    font-weight: 800;
 }

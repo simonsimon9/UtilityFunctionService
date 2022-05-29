@@ -8,9 +8,22 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TinyurlOutputComponent implements OnInit {
   @Input() tinyurl!: String;
   @Input() originalurl!: String;
+  visibility!: String
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  copy(event: Event){
+  
+    this.visibility="visible";
+    setTimeout(()=>this.myFunction(), 3000);
+    
+  }
+
+   myFunction(){
+    this.visibility= "hidden";
+    console.log("help");
   }
 
 }
