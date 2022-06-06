@@ -24,6 +24,8 @@ import { CalculatorComponent } from './views/calculator/calculator.component';
 import { WeatherComponent } from './views/weather/weather.component';
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
+import { CalcbtnComponent } from './views/calculator/components/calcbtn/calcbtn.component';
+import { CalcscreenComponent } from './views/calculator/components/calcscreen/calcscreen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { RouterModule } from '@angular/router';
     UrlshortnerComponent,
     MainNavComponent,
     CalculatorComponent,
-    WeatherComponent
+    WeatherComponent,
+    CalcbtnComponent,
+    CalcscreenComponent
   
   ],
   imports: [

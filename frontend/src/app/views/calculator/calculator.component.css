@@ -1,0 +1,31 @@
+.container{
+    max-width: 800px;
+}
+.col{
+    padding: 0;
+}
+.row :nth-child(1){
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.row :nth-child(2){
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.row :nth-child(3){
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.row :nth-child(4){
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#clear{
+    border-right: 1px solid black;
+}
+
+#calcscreen{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
