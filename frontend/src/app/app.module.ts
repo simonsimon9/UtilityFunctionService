@@ -26,6 +26,8 @@ import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { CalcbtnComponent } from './views/calculator/components/calcbtn/calcbtn.component';
 import { CalcscreenComponent } from './views/calculator/components/calcscreen/calcscreen.component';
+import { CalculatorService } from './services/calculator.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,7 @@ import { CalcscreenComponent } from './views/calculator/components/calcscreen/ca
     
     
   ],
-  providers: [],
+  providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

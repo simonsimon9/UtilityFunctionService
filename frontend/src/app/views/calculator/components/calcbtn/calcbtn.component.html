@@ -1,5 +1,9 @@
 <div>
-    <button class="pushable">
+    <button (click) = "pressedBtn(value)"
+            [ngStyle]="{backgroundColor : getColor(value)}"
+            
+            
+            class="pushable">
         <span class="front">{{value}}</span>
     </button>
    
