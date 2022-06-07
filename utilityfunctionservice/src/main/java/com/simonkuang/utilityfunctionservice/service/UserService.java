@@ -1,12 +1,9 @@
 package com.simonkuang.utilityfunctionservice.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.simonkuang.utilityfunctionservice.models.User;
-import com.simonkuang.utilityfunctionservice.repo.UrlRepo;
 import com.simonkuang.utilityfunctionservice.repo.UserRepo;
 
 @Service
@@ -29,10 +26,8 @@ public class UserService { //handles the business logic , how the data is handle
 
 	public void putUser(long id, User user) {
 		User updatedUser = userRepo.findById(id).get();
-		updatedUser.setFirstName(user.getFirstName());
-		updatedUser.setLastName(user.getLastName());
-		updatedUser.setOccupation(user.getOccupation());
-		updatedUser.setAge(user.getAge());
+		updatedUser.setUserName(user.getUserName());
+		updatedUser.setPassword(user.getPassword());
 		userRepo.save(updatedUser);
 	}
 

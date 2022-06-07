@@ -13,13 +13,9 @@ public class User {
 	private long id;
 	
 	@Column
-	private String firstName;
+	private String userName;
 	@Column
-	private String lastName;
-	@Column
-	private int age;
-	@Column
-	private String occupation;
+	private String password;
 	/**
 	 * @return the id
 	 */
@@ -33,53 +29,27 @@ public class User {
 		this.id = id;
 	}
 	/**
-	 * @return the firstName
+	 * @return the id
 	 */
-	public String getFirstName() {
-		return firstName;
+	public String getUserName() {
+		return  userName;
 	}
 	/**
-	 * @param firstName the firstName to set
+	 * @param id the id to set
 	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}/**
+	 * @return the id
+	 */
+	public String getPassword() {
+		return this.password;
 	}
 	/**
-	 * @return the lastName
+	 * @param id the id to set
 	 */
-	public String getLastName() {
-		return lastName;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	/**
-	 * @return the age
-	 */
-	public int getAge() {
-		return age;
-	}
-	/**
-	 * @param age the age to set
-	 */
-	public void setAge(int age) {
-		this.age = age;
-	}
-	/**
-	 * @return the occupation
-	 */
-	public String getOccupation() {
-		return occupation;
-	}
-	/**
-	 * @param occupation the occupation to set
-	 */
-	public void setOccupation(String occupation) {
-		this.occupation = occupation;
-	}
-	
 
 }
