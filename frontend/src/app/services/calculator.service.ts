@@ -9,6 +9,7 @@ private calculation  = "";
 
 public calcUpdated: EventEmitter<string> = new EventEmitter();
     constructor() {
+        
         document.addEventListener('keydown', (e)=>{
             
             switch(e.key){
@@ -34,16 +35,14 @@ public calcUpdated: EventEmitter<string> = new EventEmitter();
         })
     }
     
-    getScreen(): string{
-        console.log("hi")
-        return this.calculation;
-    }
 
 
     setScreen(val:string) : void {
-        if(val === 'Escape' || val === 'Delete' || val ==='Backspace'){
+
+        if(val === 'Escape' || val === 'Delete' || val ==='Backspace' || val==='Clear'){
             this.calculation = "";
-        }else{
+        }
+         else{
             this.calculation += val;
         }
         

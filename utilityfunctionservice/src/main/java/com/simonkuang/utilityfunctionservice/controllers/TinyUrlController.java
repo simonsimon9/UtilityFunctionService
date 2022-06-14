@@ -31,7 +31,7 @@ public class TinyUrlController {
 		return new Url(recievedUrl.getOriginalurl(), recievedUrl.getTinyurl());
 	}
 	
-	@GetMapping(value="/{id}")
+	@GetMapping(value="/t/{id}")
 	public RedirectView requestUrl(@PathVariable("id") String id) {
 		log.info("Retrieved original url from DB, returning");
 		RedirectView redirectView = new RedirectView();

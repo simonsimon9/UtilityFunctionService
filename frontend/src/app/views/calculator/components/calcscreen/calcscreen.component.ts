@@ -12,8 +12,8 @@ export class CalcscreenComponent implements OnInit {
   constructor(private calculatorService: CalculatorService) { }
 
   ngOnInit(): void {
-    this.subscription = this.calculatorService.calcUpdated.subscribe((response)=>{
-      this.screen = this.calculatorService.getScreen();
+    this.subscription = this.calculatorService.calcUpdated.subscribe((values)=>{
+      this.screen = values;
     })
   }
    ngOnDestroy(){

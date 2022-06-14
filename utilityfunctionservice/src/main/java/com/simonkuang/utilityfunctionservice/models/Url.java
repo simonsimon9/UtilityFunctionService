@@ -93,7 +93,7 @@ public class Url {
 	}
 	
 	public void createAndSetTinyUrl(String string) {
-		this.setTinyurl("http://localhost:8080/" + string);
+		this.setTinyurl("http://localhost:8080/t/" + string);
 		
 	}
 }
