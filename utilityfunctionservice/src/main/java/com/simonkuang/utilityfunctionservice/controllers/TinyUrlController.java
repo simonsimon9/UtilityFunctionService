@@ -26,14 +26,14 @@ public class TinyUrlController {
 	@PostMapping(value= "/post")
 	@ResponseBody
 	public Url recieveUrl(@RequestBody Url url) {
-		log.info("recieved");
+		//log.info("recieved");
 		Url recievedUrl = urlservice.addUrl(url);
 		return new Url(recievedUrl.getOriginalurl(), recievedUrl.getTinyurl());
 	}
 	
 	@GetMapping(value="/t/{id}")
 	public RedirectView requestUrl(@PathVariable("id") String id) {
-		log.info("Retrieved original url from DB, returning");
+		//log.info("Retrieved original url from DB, returning");
 		RedirectView redirectView = new RedirectView();
 		redirectView.setUrl(urlservice.obtainUrl(id));
 		return redirectView;

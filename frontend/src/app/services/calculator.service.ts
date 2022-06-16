@@ -46,13 +46,20 @@ public calcUpdated: EventEmitter<string> = new EventEmitter();
         }else if(val==="="){
             //send to backend
             this.calculatorPostService.sendCalculation(this.calculation).subscribe(result=>{
-                console.log("what did i get back");
-                console.log(result);
+                this.calcUpdated.emit(this.calculation = result);
+            },error=>{
+                console.log("inside error");
+                console.log(error);
+                this.calcUpdated.emit(this.calculation="0");
             })
         }
          else{
             if(this.calculation==="0"){
-                this.calculation = val;
+                if(val === "+" || val === "-" || val === "/" || val==="-" || val ==="."){
+                    this.calculation += val;
+                }else{
+                    this.calculation = val;
+                }
             }else{
                 this.calculation += val;
 

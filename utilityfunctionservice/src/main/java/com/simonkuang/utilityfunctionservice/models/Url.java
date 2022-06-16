@@ -31,6 +31,9 @@ public class Url {
 		this.accesstimes = 0;
 		this.userid = null;
 	}
+	public Url() {
+		
+	}
 	/**
 	 * @return the hashValue
 	 */

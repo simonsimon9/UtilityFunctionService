@@ -30,12 +30,12 @@ public class UrlService {
 		Url foundDataByHashValue = urlRepo.findUrlByHashValue(url.getHashValue());
 		
 		if(foundDataByHashValue == null) {
-			log.info("New url entry saved and return tiny url");
+			//log.info("New url entry saved and return tiny url");
 			url.createAndSetTinyUrl(url.getHashValue());
 			return urlRepo.save(url);
 		}
 			
-		log.info("Url entry was NOT a new entry, return cached url");
+		//log.info("Url entry was NOT a new entry, return cached url");
 		return foundDataByHashValue;
 		
 		
@@ -44,11 +44,11 @@ public class UrlService {
 	public String obtainUrl(String id) {
 		Url foundDataByHashResult = urlRepo.findUrlByHashValue(id);
 		if(foundDataByHashResult == null) {
-			log.info("Cannot find url based on the hash");
+			//log.info("Cannot find url based on the hash");
 			return "localhost:4200";
 		}
 		
-		log.info("Hash found");
+		//log.info("Hash found");
 		return foundDataByHashResult.getOriginalurl();
 		
 		

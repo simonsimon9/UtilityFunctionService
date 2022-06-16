@@ -12,7 +12,7 @@ public class HomePageController {
 	
 	@GetMapping(value="/s")
 	public String hey() {
-		log.info("in the method");
+	//	log.info("in the method");
 		return "hey";
 	}
 	

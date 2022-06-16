@@ -25,6 +25,7 @@ public class Calculator {
 		this.setAnswer(answer);
 		this.setUser(user);
 	}
+	
 	public String getId() {
 		return this.id;
 	}
