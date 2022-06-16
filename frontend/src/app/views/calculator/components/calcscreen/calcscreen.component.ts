@@ -7,6 +7,7 @@ import { CalculatorService } from 'src/app/services/calculator.service';
   styleUrls: ['./calcscreen.component.css']
 })
 export class CalcscreenComponent implements OnInit {
+  public previous: string = "";
   public screen:string = "0";
   subscription: Subscription = new Subscription;
   constructor(private calculatorService: CalculatorService) { 
@@ -14,7 +15,9 @@ export class CalcscreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.calculatorService.calcUpdated.subscribe((values)=>{
-      this.screen = values;
+     console.log(values);
+     this.previous= values.previous;
+      this.screen = values.current;
     })
   }
    ngOnDestroy(){

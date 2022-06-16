@@ -1,14 +1,16 @@
 import {  HostListener, Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { CalcScreen } from '../CalcScreen';
 import { CalculatorPOSTService } from './calculatorPOST.service';
 // This is the service.
 @Injectable({
     providedIn: 'root'
   })
-export class CalculatorService implements OnChanges{
+export class CalculatorService {
 private calculation: string ="0";
+private previousCalculation: string = "";
 
-public calcUpdated: EventEmitter<string> = new EventEmitter();
+public calcUpdated: EventEmitter<CalcScreen> = new EventEmitter();
 
     constructor(private calculatorPostService: CalculatorPOSTService) {
         
@@ -46,11 +48,24 @@ public calcUpdated: EventEmitter<string> = new EventEmitter();
         }else if(val==="="){
             //send to backend
             this.calculatorPostService.sendCalculation(this.calculation).subscribe(result=>{
-                this.calcUpdated.emit(this.calculation = result);
+                this.previousCalculation = this.calculation + "=" + result;
+                this.calculation = String(result);
+                console.log("result"+ this.previousCalculation);
+                let emitData: CalcScreen =  {
+                    previous: this.previousCalculation,
+                    current: this.calculation
+                };
+                this.calcUpdated.emit(emitData);
             },error=>{
+                this.previousCalculation = this.calculation + " = " + " invalid";
+                this.calculation = "0";
                 console.log("inside error");
                 console.log(error);
-                this.calcUpdated.emit(this.calculation="0");
+                let emitData: CalcScreen =  {
+                    previous: this.previousCalculation,
+                    current: this.calculation
+                };
+                this.calcUpdated.emit(emitData);
             })
         }
          else{
@@ -65,14 +80,15 @@ public calcUpdated: EventEmitter<string> = new EventEmitter();
 
             }
         }
-        
-       this.calcUpdated.emit(this.calculation);
+        let emitData: CalcScreen =  {
+            previous: this.previousCalculation,
+            current: this.calculation
+        };
+       this.calcUpdated.emit(emitData);
        console.log("HERE IS STRING After: " + this.calculation);
 
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        console.log(changes);
-    }
+    
     
 }

@@ -26,7 +26,6 @@ public class CalculatorController {
 	@CrossOrigin
 	public ResponseEntity<String> getPage(@RequestBody String calculation) {
 		String answer = calculatorService.calculate(calculation);
-		System.out.println(answer);
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 }
