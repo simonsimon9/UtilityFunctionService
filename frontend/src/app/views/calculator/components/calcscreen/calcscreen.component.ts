@@ -7,9 +7,10 @@ import { CalculatorService } from 'src/app/services/calculator.service';
   styleUrls: ['./calcscreen.component.css']
 })
 export class CalcscreenComponent implements OnInit {
-  public screen:string=""
+  public screen:string = "0";
   subscription: Subscription = new Subscription;
-  constructor(private calculatorService: CalculatorService) { }
+  constructor(private calculatorService: CalculatorService) { 
+  }
 
   ngOnInit(): void {
     this.subscription = this.calculatorService.calcUpdated.subscribe((values)=>{

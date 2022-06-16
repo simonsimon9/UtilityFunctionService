@@ -1,14 +1,16 @@
 import {  HostListener, Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { CalculatorPOSTService } from './calculatorPOST.service';
 // This is the service.
 @Injectable({
     providedIn: 'root'
   })
 export class CalculatorService implements OnChanges{
-private calculation  = "";
+private calculation: string ="0";
 
 public calcUpdated: EventEmitter<string> = new EventEmitter();
-    constructor() {
+
+    constructor(private calculatorPostService: CalculatorPOSTService) {
         
         document.addEventListener('keydown', (e)=>{
             
@@ -38,15 +40,28 @@ public calcUpdated: EventEmitter<string> = new EventEmitter();
 
 
     setScreen(val:string) : void {
-
+        console.log("HERE IS STRING BEFORE: " + this.calculation);
         if(val === 'Escape' || val === 'Delete' || val ==='Backspace' || val==='Clear'){
-            this.calculation = "";
+            this.calculation = "0";
+        }else if(val==="="){
+            //send to backend
+            this.calculatorPostService.sendCalculation(this.calculation).subscribe(result=>{
+                console.log("what did i get back");
+                console.log(result);
+            })
         }
          else{
-            this.calculation += val;
+            if(this.calculation==="0"){
+                this.calculation = val;
+            }else{
+                this.calculation += val;
+
+            }
         }
         
        this.calcUpdated.emit(this.calculation);
+       console.log("HERE IS STRING After: " + this.calculation);
+
     }
 
     ngOnChanges(changes: SimpleChanges): void {
