@@ -48,7 +48,7 @@ public calcUpdated: EventEmitter<CalcScreen> = new EventEmitter();
         }else if(val==="="){
             //send to backend
             this.calculatorPostService.sendCalculation(this.calculation).subscribe(result=>{
-                this.previousCalculation = this.calculation + "=" + result;
+                this.previousCalculation = this.calculation +  " = " + result;
                 this.calculation = String(result);
                 console.log("result"+ this.previousCalculation);
                 let emitData: CalcScreen =  {

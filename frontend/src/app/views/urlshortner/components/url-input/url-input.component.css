@@ -37,3 +37,7 @@ label{
 .btn-submit:active{
     background-color: #272f51;
 }
+
+.form-control{
+    background-color: #fafafa;
+}
