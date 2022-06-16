@@ -1,21 +1,14 @@
 package com.simonkuang.utilityfunctionservice.controllers;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.simonkuang.utilityfunctionservice.models.Calculator;
 import com.simonkuang.utilityfunctionservice.service.CalculatorService;
-import com.udojava.evalex.Expression;
+
 
 //import com.simonkuang.utilityfunctionservice.service.CalculatorService;
 

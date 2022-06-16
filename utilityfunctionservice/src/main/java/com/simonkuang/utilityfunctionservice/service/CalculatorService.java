@@ -12,7 +12,6 @@ import com.azure.cosmos.models.PartitionKey;
 import com.simonkuang.utilityfunctionservice.models.Calculator;
 import com.simonkuang.utilityfunctionservice.repo.CalculatorRepo;
 import com.simonkuang.utilityfunctionservice.repo.UrlRepo;
-import com.udojava.evalex.Expression;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -24,6 +23,7 @@ public class CalculatorService {
 	public CalculatorService(CalculatorRepo calculatorRepo) {
 		this.calculatorRepo = calculatorRepo;
 	}
+	
 	public String saveCalc(String calc, String answer) {
 		final Calculator calculator = new Calculator( calc, answer, "user");
 		final Mono<Calculator> saveCalculatorMono = calculatorRepo.save(calculator);
@@ -31,18 +31,19 @@ public class CalculatorService {
 		System.out.println(savedCalculator.getCalc());
 		return "saved";
 	}
+	
 	public String findCalc(String calc) {
 		
 	    Flux<Calculator> findByCalcMono = calculatorRepo.findByCalc(calc);
 		List<Calculator> found = findByCalcMono.collectList().block();
 		if(found.isEmpty()) {
-			
 			return "none";
 		}else {
 			return found.get(0).getAnswer();
 		}
 	    
 	}
+	
 	
 	public String calculate(String calculation) {
 		String operators[] = calculation.split("\\d*\\.?\\d+");//this retrieves the operators
