@@ -34,6 +34,7 @@ public calcUpdated: EventEmitter<CalcScreen> = new EventEmitter();
                 case 'Escape':
                 case 'Backspace':
                 case 'Delete':
+                case 'Enter':
                     this.setScreen(e.key);
             }
         })
@@ -45,7 +46,7 @@ public calcUpdated: EventEmitter<CalcScreen> = new EventEmitter();
         console.log("HERE IS STRING BEFORE: " + this.calculation);
         if(val === 'Escape' || val === 'Delete' || val ==='Backspace' || val==='Clear'){
             this.calculation = "0";
-        }else if(val==="="){
+        }else if(val==="=" || val==='Enter'){
             //send to backend
             this.calculatorPostService.sendCalculation(this.calculation).subscribe(result=>{
                 this.previousCalculation = this.calculation +  " = " + result;

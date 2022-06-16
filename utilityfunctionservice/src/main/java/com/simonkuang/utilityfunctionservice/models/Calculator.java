@@ -2,6 +2,7 @@ package com.simonkuang.utilityfunctionservice.models;
 
 
 import com.azure.spring.data.cosmos.core.mapping.Container;
+import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 
 import lombok.Data;
@@ -11,6 +12,7 @@ import org.springframework.data.annotation.Id;
 @Container(containerName = "Calculator")
 public class Calculator {
 	@Id
+	@GeneratedValue
 	private String id;
 	@PartitionKey
 	private String calc;
@@ -19,8 +21,8 @@ public class Calculator {
 	public Calculator () {
 		
 	}
-	public Calculator(String id, String calc, String answer, String user) {
-		this.id = id;
+	public Calculator( String calc, String answer, String user) {
+		
 		this.calc= calc;
 		this.setAnswer(answer);
 		this.setUser(user);

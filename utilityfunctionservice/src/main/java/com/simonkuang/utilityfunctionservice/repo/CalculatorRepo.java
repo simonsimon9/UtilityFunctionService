@@ -6,6 +6,7 @@ import com.azure.spring.data.cosmos.repository.ReactiveCosmosRepository;
 import com.simonkuang.utilityfunctionservice.models.Calculator;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Repository
 public interface CalculatorRepo extends ReactiveCosmosRepository<Calculator, String> {

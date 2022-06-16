@@ -2,6 +2,7 @@ package com.simonkuang.utilityfunctionservice.service;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,24 @@ public class CalculatorService {
 	public CalculatorService(CalculatorRepo calculatorRepo) {
 		this.calculatorRepo = calculatorRepo;
 	}
-	
-	public Mono<Calculator> findCalc() {
+	public String saveCalc(String calc, String answer) {
+		final Calculator calculator = new Calculator( calc, answer, "user");
+		final Mono<Calculator> saveCalculatorMono = calculatorRepo.save(calculator);
+		final Calculator savedCalculator = saveCalculatorMono.block();
+		System.out.println(savedCalculator.getCalc());
+		return "saved";
+	}
+	public String findCalc(String calc) {
 		
-	    Mono<Calculator> retrievedCalc = calculatorRepo.findById("1", new PartitionKey("3+3"));
-		
-	    return retrievedCalc;
+	    Flux<Calculator> findByCalcMono = calculatorRepo.findByCalc(calc);
+		List<Calculator> found = findByCalcMono.collectList().block();
+		if(found.isEmpty()) {
+			
+			return "none";
+		}else {
+			return found.get(0).getAnswer();
+		}
+	    
 	}
 	
 	public String calculate(String calculation) {
