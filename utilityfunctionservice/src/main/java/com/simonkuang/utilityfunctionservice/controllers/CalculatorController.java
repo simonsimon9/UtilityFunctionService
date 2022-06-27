@@ -26,10 +26,10 @@ public class CalculatorController {
 			answer = calculatorService.calculate(calculation);
 			calculatorService.saveCalc(calculation,answer);
 			System.out.println("Not found in Azure, calculating and saving to Azure");
-			return new ResponseEntity<>(answer, HttpStatus.OK);
+			return new ResponseEntity<String>(answer, HttpStatus.OK);
 		}else {
 			System.out.println("Found this from Azure DB");
-			return new ResponseEntity<>(findAnswerInAzureDB, HttpStatus.OK);
+			return new ResponseEntity<String>(findAnswerInAzureDB, HttpStatus.OK);
 		}
 		
 		

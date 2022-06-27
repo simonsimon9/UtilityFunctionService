@@ -10,15 +10,14 @@ import com.github.prominence.openweathermap.api.model.weather.Weather;
 import com.simonkuang.utilityfunctionservice.config.WeatherProperties;
 @Service
 public class WeatherService {
-	
-	
+	@Autowired
+	private WeatherProperties weatherProperty;
 	private OpenWeatherMapClient openWeatherClient;
-	WeatherService(){
-		openWeatherClient = new OpenWeatherMapClient("5ab7c97d141c27cda9a7a80c879f718b");
-	}
+	
 	
 	
 	public Weather weatherByZip(String zipcode) {
+		openWeatherClient = new OpenWeatherMapClient(weatherProperty.getKey());
 		
 		Weather weatherResponse = 
 				openWeatherClient
