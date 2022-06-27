@@ -13,21 +13,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simonkuang.utilityfunctionservice.config.ConfigProperties;
+import com.simonkuang.utilityfunctionservice.config.CloudCosmosProperties;
+import com.simonkuang.utilityfunctionservice.config.PropertiesLoader;
+import com.simonkuang.utilityfunctionservice.config.WeatherProperties;
 import com.simonkuang.utilityfunctionservice.models.User;
 import com.simonkuang.utilityfunctionservice.service.UserService;
-@EnableConfigurationProperties(ConfigProperties.class)
 @RestController
 public class UserController {
 	@Autowired //handles depedency injection for repo. 
 	private UserService userService;
 	@Autowired
-	private ConfigProperties hi;
+	private CloudCosmosProperties hi;
+	@Autowired
+	private WeatherProperties weather;
 	
 	@GetMapping(value="/user")
 	public String getPage() {
-		String man = hi.getEndpoint();
-		System.out.println(man);
+	
+		
 		return "hahahahah";
 		
 	}

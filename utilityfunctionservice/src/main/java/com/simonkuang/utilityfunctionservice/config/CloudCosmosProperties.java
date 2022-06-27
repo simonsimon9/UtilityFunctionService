@@ -3,15 +3,14 @@ package com.simonkuang.utilityfunctionservice.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.boot.context.properties.ConstructorBinding;
-import org.springframework.context.annotation.Configuration;
+
 
 @ConfigurationPropertiesScan 
 @ConfigurationProperties(prefix = "spring.cloud.azure.cosmos")
-public class ConfigProperties {
+public class CloudCosmosProperties {
 
     private String endpoint;
-    
+    private String key;
    
     public String getEndpoint() {
     	return endpoint;
@@ -19,6 +18,12 @@ public class ConfigProperties {
     public void setEndpoint(String endpoint) {
     	this.endpoint=endpoint;
     }
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
    
 }
 /*
