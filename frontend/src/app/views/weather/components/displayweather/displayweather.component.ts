@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CurrentWeather } from 'src/app/models/Weather/CurrentWeather';
 import { CurrentWeatheForecast } from 'src/app/models/Weather/CurrentWeatherForecast';
+import { WeatherGetService } from 'src/app/services/weatherGET.service';
 import { SearchzipComponent } from '../searchzip/searchzip.component';
 
 @Component({
@@ -14,10 +15,14 @@ export class DisplayweatherComponent implements OnInit {
   currentForecast!: CurrentWeatheForecast;
   subscription: Subscription = new Subscription;
 
-  constructor() { }
+  constructor(private weatherService: WeatherGetService) { }
 
   ngOnInit(): void {
-   
+    this.subscription = this.weatherService.weatherUpdate.subscribe(result=>{
+      this.currentWeather = result[0];
+      this.currentForecast = result[1];
+      console.log(this.currentForecast);
+    })
   }
 
 }

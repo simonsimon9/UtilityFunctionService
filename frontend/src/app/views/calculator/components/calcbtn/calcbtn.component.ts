@@ -32,11 +32,6 @@ export class CalcbtnComponent implements OnInit {
 
   pressedBtn(value:string){
     this.caclulatorService.setScreen(value);
-    this.weatherService.getCurrentWeather(48210).subscribe(result=>{
-      console.log("this what you got ");
-      console.log(result);
-    });
-    console.log("clciked" + value);
   }
 
  

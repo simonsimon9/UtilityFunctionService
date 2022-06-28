@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import {  Injectable} from '@angular/core';
+import {  EventEmitter, Injectable} from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from '../models/Weather/CurrentWeather';
 import { CurrentWeatheForecast } from '../models/Weather/CurrentWeatherForecast';
+import { WeatherEmit } from '../models/Weather/WeatherEmit';
 import { WeatherForecasts } from '../models/Weather/WeatherObjects/WeatherForecasts';
 // This is the service.
 @Injectable({
     providedIn: 'root'
   })
 export class WeatherGetService{
-    currentWeather!: CurrentWeather
-    forecastWeather!: CurrentWeatheForecast
+    public weatherUpdate: EventEmitter<any> = new EventEmitter();
+
     private apiUrl = environment.backendurl;
 
     constructor(private myHttpRequest:HttpClient) {}
@@ -21,10 +22,7 @@ export class WeatherGetService{
             this.getCurrentWeather(zip),
             this.getForecastWeather(zip)
         ]).subscribe(data=>{
-            this.currentWeather = data[0];
-            console.log(this.currentWeather);
-            this.forecastWeather = data[1];
-            console.log(this.forecastWeather)
+            this.weatherUpdate.emit(data);
         })
     }
     getCurrentWeather(zip : any):Observable<CurrentWeather>{
