@@ -27,6 +27,9 @@ import { RouterModule } from '@angular/router';
 import { CalcbtnComponent } from './views/calculator/components/calcbtn/calcbtn.component';
 import { CalcscreenComponent } from './views/calculator/components/calcscreen/calcscreen.component';
 import { CalculatorService } from './services/calculator.service';
+import { SearchzipComponent } from './views/weather/components/searchzip/searchzip.component';
+import { DisplayweatherComponent } from './views/weather/components/displayweather/displayweather.component';
+import { WeatherGetService } from './services/weatherGET.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { CalculatorService } from './services/calculator.service';
     CalculatorComponent,
     WeatherComponent,
     CalcbtnComponent,
-    CalcscreenComponent
+    CalcscreenComponent,
+    SearchzipComponent,
+    DisplayweatherComponent
   
   ],
   imports: [
@@ -60,7 +65,7 @@ import { CalculatorService } from './services/calculator.service';
     
     
   ],
-  providers: [CalculatorService],
+  providers: [CalculatorService, WeatherGetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

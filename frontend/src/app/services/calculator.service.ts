@@ -1,6 +1,6 @@
 import {  HostListener, Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { CalcScreen } from '../CalcScreen';
+import { CalcScreen } from '../models/CalcScreen';
 import { CalculatorPOSTService } from './calculatorPOST.service';
 // This is the service.
 @Injectable({

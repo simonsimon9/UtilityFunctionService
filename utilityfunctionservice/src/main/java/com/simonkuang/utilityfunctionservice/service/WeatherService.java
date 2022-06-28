@@ -2,10 +2,12 @@ package com.simonkuang.utilityfunctionservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.github.prominence.openweathermap.api.OpenWeatherMapClient;
 import com.github.prominence.openweathermap.api.enums.Language;
 import com.github.prominence.openweathermap.api.enums.UnitSystem;
+import com.github.prominence.openweathermap.api.model.forecast.Forecast;
 import com.github.prominence.openweathermap.api.model.weather.Weather;
 import com.simonkuang.utilityfunctionservice.config.WeatherProperties;
 @Service
@@ -25,11 +27,25 @@ public class WeatherService {
 				.single()
 				.byZipCodeInUSA(zipcode)
 				.language(Language.ENGLISH)
-				.unitSystem(UnitSystem.METRIC)
+				.unitSystem(UnitSystem.IMPERIAL)
+				.retrieve()
+				.asJava();
+		System.out.println(weatherResponse.getRain());
+		return weatherResponse;
+	}
+	
+	public Forecast forecastByZip(String zipcode) {
+		openWeatherClient = new OpenWeatherMapClient(weatherProperty.getKey());
+
+		Forecast forecast = openWeatherClient
+				.forecast5Day3HourStep()
+				.byZipCodeInUSA(zipcode)
+				.unitSystem(UnitSystem.IMPERIAL)
+				.count(15)
 				.retrieve()
 				.asJava();
 		
-		return weatherResponse;
+		return forecast;
 	}
 	
 	

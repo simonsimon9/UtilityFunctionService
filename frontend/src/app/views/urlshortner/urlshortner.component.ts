@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from 'src/app/services/url.service';
-import { Url } from 'src/app/Url';
-import { FormControl, Validators } from '@angular/forms';
+import { Url } from 'src/app/models/Url';
 @Component({
   selector: 'app-urlshortner',
   templateUrl: './urlshortner.component.html',

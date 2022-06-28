@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Url } from 'src/app/Url';
+import { Url } from 'src/app/models/Url';
 
 @Component({
   selector: 'app-url-input',

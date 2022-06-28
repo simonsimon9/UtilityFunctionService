@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CalculatorService } from 'src/app/services/calculator.service';
 import { HostListener } from '@angular/core';
+import { WeatherGetService } from 'src/app/services/weatherGET.service';
 @Component({
   selector: 'calcbtn',
   templateUrl: './calcbtn.component.html',
@@ -12,7 +13,7 @@ export class CalcbtnComponent implements OnInit {
   backgroundColor :string = 'background-color';
   grey:string = '#dadce0';
   blue: string = '#4285f4';
-  constructor(private caclulatorService: CalculatorService) { }
+  constructor(private caclulatorService: CalculatorService, private weatherService: WeatherGetService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,10 @@ export class CalcbtnComponent implements OnInit {
 
   pressedBtn(value:string){
     this.caclulatorService.setScreen(value);
+    this.weatherService.getCurrentWeather(48210).subscribe(result=>{
+      console.log("this what you got ");
+      console.log(result);
+    });
     console.log("clciked" + value);
   }
 
