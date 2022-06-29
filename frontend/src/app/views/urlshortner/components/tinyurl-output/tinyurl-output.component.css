@@ -5,6 +5,8 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     align-items: center;
+    word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .text-box{
@@ -49,6 +51,8 @@ p{
 
 .originalurl{
     font-weight: 700;
+    max-width: 800px;
+    overflow:hidden
 }
 
 .reminder{

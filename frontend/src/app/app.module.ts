@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 //angular material
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 //components
 import { AppComponent } from './app.component';
@@ -61,7 +63,9 @@ import { WeatherGetService } from './services/weatherGET.service';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    MatCardModule,
+    MatInputModule
     
     
   ],

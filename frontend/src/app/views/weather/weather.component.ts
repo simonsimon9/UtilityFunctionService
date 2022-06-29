@@ -7,7 +7,7 @@ import { WeatherGetService } from 'src/app/services/weatherGET.service';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-
+  title: string = "Weather"
   constructor() { }
 
   ngOnInit(): void {

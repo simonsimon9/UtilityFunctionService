@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { CurrentWeather } from 'src/app/models/Weather/CurrentWeather';
 import { CurrentWeatheForecast } from 'src/app/models/Weather/CurrentWeatherForecast';
 import { WeatherGetService } from 'src/app/services/weatherGET.service';
-import { SearchzipComponent } from '../searchzip/searchzip.component';
 
 @Component({
   selector: 'app-displayweather',
